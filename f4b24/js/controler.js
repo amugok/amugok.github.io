@@ -23,10 +23,16 @@ $(function(){
     if ( unicode == 1 )
     {
       $(".ansi").hide();
+      $(".x64").hide();
     }
     else if ( unicode == 2 )
     {
       $(".unicode").hide();
+      $(".x64").hide();
+    }
+    else if ( unicode == 3 )
+    {
+      $(".x86").hide();
     }
     if ( !cata )
     {
@@ -68,23 +74,29 @@ $(function(){
     }
     updateList();
   });
+  $("#swlatest").text("[最新のみ]／全て");
   $("#swunicode").click(function(){
     unicode = unicode + 1;
     if ( unicode == 1 )
     {
-      $("#swunicode").text("[UNICODE]／ANSI／全て");
+      $("#swunicode").text("[32bit]／ANSI／64bit／全て");
     }
     else if ( unicode == 2 )
     {
-      $("#swunicode").text("UNICODE／[ANSI]／全て");
+      $("#swunicode").text("32bit／[ANSI]／64bit／全て");
+    }
+    else if ( unicode == 3 )
+    {
+      $("#swunicode").text("32bit／ANSI／[64bit]／全て");
     }
     else
     {
       unicode = 0;
-      $("#swunicode").text("UNICODE／ANSI／[全て]");
+      $("#swunicode").text("32bit／ANSI／64bit／[全て]");
     }
     updateList();
   });
+  $("#swunicode").text("[32bit]／ANSI／64bit／全て");
   $("#swcata").click(function(){
     cata = !cata;
     if ( cata )
